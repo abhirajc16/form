@@ -1,0 +1,27 @@
+body
+{
+    background-color: bisque;color: darkblue;font-family: 'Courier New';text-align: center;
+}
+        
+h1
+{
+    color: black;font-family: Arial;
+}
+
+A:link, A:visited
+{
+    background-color: darkgray;color: black;text-align: center;padding: 20px,25px; display: inline-block;
+}
+
+@media (max-width: 700px)
+{
+    .container
+    {
+        width:100%;
+    }
+
+    body
+    {
+        font-size:x-large;
+    }
+}

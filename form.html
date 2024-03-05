@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The FORM!</title>
+        <link rel="stylesheet" type="text/css" href="styles1.css">
+    </head>
+    <body>
+        <div class="container">
+            <b><h3>Since you clicked continue, fill up the form. DO IT!</h3></b><br>
+            <form onsubmit="sendEmail(); reset(); return false;">
+                Name : <input type="text" id="name" placeholder="Your full name" required><br><br>
+                Date of Birth : <input type="date" id="dob" required><br><br>
+                Gender : <select required id="gender">
+                    <option> Select </option>
+                    <option> Male </option>
+                    <option> Female </option>
+                    <option> Neither </option>
+                </select><br><br>
+                Address : <textarea rows="4" cols="80" required id="address" placeholder="Your home address"></textarea><br><br>
+                Phone Number : <input type="text" required id="phone" placeholder="Your phone number"><br><br>
+                Email ID : <input type="email" id="email" placeholder="Your Email ID"><br><br>
+                Do you have something to tell us?<br>
+                <textarea rows="4" cols="80" required id="message" placeholder="Your message"></textarea>
+                <br><br><br>
+                <button type="submit" value="Submit"> Submit </button>
+            </form>
+            <script src="smtp.js"></script>
+            <script>
+                function sendEmail(){
+                    Email.send({
+                        Host : "smtp.elasticemail.com",
+                        Username : "znac16@gmail.com",
+                        Password : "33EBF2AB94397EC72E99B901E62A833C3AE9",
+                        To : 'znac16@gmail.com',
+                        From : document.getElementById("email").value,
+                        Subject : "New Form Submitted! :D",
+                        Body : "Name : " + document.getElementById("name").value
+                        +"<br>D.O.B. : " + document.getElementById("dob").value
+                        +"<br>Gender : " + document.getElementById("gender").value
+                        +"<br>Address : " + document.getElementById("address").value
+                        +"<br>Phone Number : " + document.getElementById("phone").value
+                        +"<br>Email : " + document.getElementById("email").value
+                        +"<br>Message : " + document.getElementById("message").value
+                    }).then(
+                    message => alert("Thank you for filling this form!")
+                    );
+                }
+            </script>
+        </div>
+    </body>
+</html>
